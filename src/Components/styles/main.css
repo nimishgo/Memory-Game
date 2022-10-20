@@ -1,9 +1,79 @@
 .container {
+  /* padding: 10px; */
+  /* background-image: linear-gradient(to right, #434343 0%, black 100%); */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  color: #ddd;
+  gap: 8px;
+  margin: 50px auto;
+}
+
+.scoreBoard {
+  margin: 64px auto 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 10vw;
+  font-size: 20px;
+}
+
+.cardContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit , minmax(360px,1fr));
+  /* justify-items: center; */
+  /* align-content: center; */
+  width: 100%;
+  height: 100%;
+  gap : 10px;
+}
+
+img {
+  /* position: relative; */
+  background-color: #121212;
+  padding: 10px;
+  object-fit: fill;
+  width: 200px;
+  height: 300px;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.cards {
+  background-color: #121212;
+  box-sizing: content-box;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
-  /* background-color: hotpink; */
-  z-index: 5;
+}
+
+img + div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+img:hover + div{
+  visibility: visible;
+}
+
+img:hover::after + div {
+  visibility: visible;
+}
+
+.scoreBoard {
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
