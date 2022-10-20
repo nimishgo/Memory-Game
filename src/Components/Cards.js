@@ -24,19 +24,50 @@ const Cards = ({arr}) => {
       changeArr(cardList);
     };
     
-const scoreUpdate = () => {
-  if(score >= 10)
+const scoreUpdate = (i) => {
+  console.log(i);
+
+  let reset = false;
+
+  arrList.map((val) => 
+    {
+    
+      if(i === val.id) {
+        if(val.isClicked)
+        {
+          reset = true;
+        }
+        else
+        {
+          reset = false;
+        }
+        val.isClicked = true
+      }
+      
+      return i;
+    }
+  );
+
+
+  if(score >= 10 || reset)
   {
     changeScore(0);
+    reset = false;
+    arrList.map((val) => {
+      val.isClicked = false;
+      return i;
+    })
   }
   else
   {
     changeScore(score + 1);
-
   }
-
-  (score >= highScore && highScore < 10 && highScoreChange(score + 1));
-
+  
+  if(score >= highScore)
+  {
+        highScoreChange(score);
+  }
+  console.log(arrList);
 }
 
     
@@ -53,7 +84,7 @@ const scoreUpdate = () => {
       {
         arrList.map((value, index) => (
           <div className='cards' key={value.id}>
-              <img src={value.src} alt={value.name} onClick={scoreUpdate} value={index}/>
+              <img src={value.src} alt={value.name} onClick={() => scoreUpdate(value.id)} value={index}/>
               <div>{value.name}</div>
         </div>
       )
