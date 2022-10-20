@@ -77,3 +77,22 @@ img:hover::after + div {
   justify-content: center;
   align-items: center;
 }
+
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 8px;
+  }
+
+  .scoreBoard {
+    font-size: 12px;
+  }
+
+  img {
+    width: 50px;
+    height: 90px;
+  }
+
+  .cardContainer {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
